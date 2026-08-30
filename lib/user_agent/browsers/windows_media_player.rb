@@ -47,7 +47,8 @@ class UserAgent
 
       # @return [true, false] Is this Windows Media Player 6.4 (NSPlayer 4.1) or Media Player 6.0 (NSPlayer 3.2)?
       def classic?
-        version.to_a[0] <= 4
+        major_version = version.to_a[0]
+        major_version && major_version <= 4
       end
 
       # Check if our parsed OS is a mobile OS
