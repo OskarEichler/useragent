@@ -33,7 +33,7 @@ class UserAgent
       end
 
       def real_version
-        [trident_version, version].sort.last
+        trident_version ? [trident_version, version].max : version
       end
 
       def compatibility_view?
