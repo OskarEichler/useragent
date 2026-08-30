@@ -28,7 +28,7 @@ class UserAgent
       #   The WMFSDK version to check for. For example, "9.0", "11.0", "12.0"
       # @return [true, false] Is this media player compatible with the passed WMFSDK version?
       def has_wmfsdk?(version)
-        if wmfsdk_version && wmfsdk_version.to_s =~ /\A#{version}/
+        if wmfsdk_version && wmfsdk_version.to_s.start_with?(version.to_s)
           return true
         else
           return false
