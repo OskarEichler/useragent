@@ -19,6 +19,7 @@ class UserAgent
       # @return [nil, String] the device model
       def device
         return nil unless length >= 4
+        return nil unless self[3].comment
         return nil unless self[3].comment.last.include?(' Build/')
 
         self[3].comment.last.split(' Build/').first
@@ -29,6 +30,7 @@ class UserAgent
       # @return [nil, String] the device build
       def device_build
         return nil unless length >= 4
+        return nil unless self[3].comment
         return nil unless self[3].comment.last.include?(' Build/')
 
         self[3].comment.last.split(' Build/').last
@@ -39,6 +41,7 @@ class UserAgent
       # @return [nil, String] the localization
       def localization
         return nil unless length >= 4
+        return nil unless self[3].comment
         return nil unless self[3].comment.last.include?('ALCATEL ')
         return nil unless self[3].comment.length >= 5
 
@@ -57,6 +60,7 @@ class UserAgent
       # @return [nil, String] the operating system
       def os
         return nil unless length >= 4
+        return nil unless self[3].comment
 
         # comment[0] = 'Linux'
         # comment[1] = 'U'
@@ -74,7 +78,7 @@ class UserAgent
       # 
       # @return [nil, "Android"] the platform
       def platform
-        if os.include?('Android')
+        if os && os.include?('Android')
           'Android'
         else
           nil
@@ -88,6 +92,7 @@ class UserAgent
       def security
         return nil unless length >= 4
         return nil unless self[3].product == 'Dalvik' || self[3].product == 'Mozilla'
+        return nil unless self[3].comment
 
         Security[self[3].comment[1]]
       end
