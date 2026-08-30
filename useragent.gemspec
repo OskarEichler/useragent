@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "rake", "~> 13.0"
   s.add_development_dependency "rspec", "~> 3.0"
+  s.add_development_dependency "ostruct"
 
   s.authors  = ["Joshua Peek", "Garry Shutler"]
   s.email   = "garry@robustsoftware.co.uk"
