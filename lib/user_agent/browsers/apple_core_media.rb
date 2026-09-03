@@ -25,6 +25,8 @@ class UserAgent
       end
 
       def security
+        return unless application
+
         Security[application.comment[1]]
       end
 

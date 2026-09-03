@@ -35,7 +35,7 @@ class UserAgent
       end
 
       def security
-        Security[application.comment[1]] || :strong
+        application.comment ? Security[application.comment[1]] || :strong : :strong
       end
 
       def os

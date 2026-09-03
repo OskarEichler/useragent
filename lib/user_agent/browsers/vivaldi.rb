@@ -10,7 +10,7 @@ class UserAgent
       end
 
       def build
-        webkit.version
+        webkit && webkit.version
       end
 
       def version

@@ -19,7 +19,7 @@ class UserAgent
       end
 
       def build
-        webkit.version
+        webkit && webkit.version
       end
 
       BuildVersions = {
@@ -95,6 +95,8 @@ class UserAgent
       end
 
       def security
+        return unless application
+
         Security[application.comment[1]]
       end
 

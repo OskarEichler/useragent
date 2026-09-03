@@ -16,7 +16,7 @@ class UserAgent
       end
 
       def build
-        webkit.version
+        webkit && webkit.version
       end
 
       # Prior to Safari 3, the user agent did not include a version number
